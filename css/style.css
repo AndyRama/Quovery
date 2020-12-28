@@ -13,13 +13,16 @@
  } 
 
 .q-hero__logo {
-  margin-top: 0px;
-  padding-left: 60px;
+  margin-top: 40px;
+  padding-left: 120px;
+  position: absolute;
 }
 
  .q-hero__image {
   margin-top: 35px;
   padding-left: 90px;
+  height:560px;
+  width:687px;
 }
 
 section#sec-1 {
