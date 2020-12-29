@@ -3,26 +3,29 @@
   padding:0;  
   font-family:"HK Grotesk";
 }
- .flex-container {
-  width:1120px;
-  height: 100%;
-  margin:0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
- } 
 
 .q-hero__logo {
   margin-top: 40px;
   padding-left: 120px;
   position: absolute;
 }
+ 
+.flex-container {
+  width:1120px;
+  height: 100%;
+  margin:0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+ } 
 
- .q-hero__image {
-  margin-top: 35px;
-  padding-left: 90px;
-  height:560px;
-  width:687px;
+
+.q-hero__image {
+  position: absolute;
+  width: 567px;
+  height: 687px;
+  left: 708px;
+  top: 80px;
 }
 
 section#sec-1 {
@@ -32,19 +35,18 @@ section#sec-1 {
 }
 
 section#sec-1 .container {
-display: flex;
-align-items: center;
+  display: flex;
+  align-items: end;
 }
 
 section#sec-1 .title {
-display: flex;
-align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 section#sec-1 h1 {
-font-size: 46px;
-/* display: inline; */
-margin-right: 25px;
+  font-size: 46px;
+  margin-right: 25px;
 }
 
 section#sec-1 h2 {
@@ -64,7 +66,7 @@ section#sec-1 .row-button{
   margin-top: 60px;
   display: flex;
   flex-direction: row;
- }
+}
 
 section#sec-1 .row-button button {
   border: none;
@@ -96,32 +98,43 @@ section#sec-1 .row-button button:nth-child(2){
   background-color:#6578C0 ;
 }
 
- section#sec-1 .star-button {
-  display: flex;
-  height: 30px;
-  background-color:white;
-  width: 100px;
-  border-radius: 3px;
-}
+/* RIGHT SIDE HERO BANNER */
 
- section#sec-1 .star-button .star {
-  color: black;
-  width: 65px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+section#sec-1 .right .img-top-illu {
+  margin-bottom: -300px;  
+  position: relative;
+  height: 100%; 
+  z-index: 10;
+  animation: HeroSlideIn .9s forwards;
+} 
 
-section#sec-1 .star-button .star i {
-  margin-right: 5px;
+section#sec-1 .right .img-mid-illu {
+  position: relative;
+  z-index: 8;
+  animation: HeroSlideIn .3s forwards;
+  animation-delay:1s; 
+opacity: 0;
 }
+ 
+section#sec-1 .right .img-bot-illu {
+  margin-top: -300px;  
+  /* position: relative; */
+  height: 100%; 
+  z-index: 6;
+  animation: HeroSlideIn .6s forwards;
+ animation-delay:2s; 
+opacity: 0;
+} 
 
- section#sec-1 .star-button .count {
-  color: black;
-  width: 35px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-left: 1px solid;
+@keyframes HeroSlideIn {
+  0% {
+      transform: translateY(-10%);
+      opacity: 0;
+  }
+  
+  100% {
+      transform: translateY(0);
+      opacity: 1;
+  }
 }
 
