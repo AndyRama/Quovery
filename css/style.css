@@ -28,7 +28,7 @@
 }
 
 section#sec-1 {
-  height: 85vh;
+  height: 90vh;
   background-color: #151B2B;
   color:white;
 }
@@ -168,6 +168,7 @@ section#sec-1 .right .img-bot-illu {
   color: #454658;
   padding-bottom: 50px;
   margin-left: 110px;
+  margin-left: 200px !important;
 }
 .q-how p {
   font-size: 16px;
@@ -180,7 +181,7 @@ section#sec-1 .right .img-bot-illu {
 }
 
 .q-how img {
-   margin-left: 100px;
+   margin-left: 180px;
 }
 
 .q-Usage {
@@ -195,7 +196,7 @@ section#sec-1 .right .img-bot-illu {
   line-height: 110%;
   color: #454658;
   padding-bottom: 50px;
-  margin-left: 190px;
+  margin-left: 200px !important;
   margin-top: 70px;
 }
 
@@ -205,4 +206,26 @@ section#sec-1 .right .img-bot-illu {
 
 .q-Usage img {
    margin-top: -170px; 
+}
+/*Section 3*/
+
+section#sec-3 .bloc {
+  max-width: 428px;
+}
+
+section#sec-3 .bloc h2 {
+  /* font-family:"HK Grotesk"; */
+  /* font-style: normal; */
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 26px;
+  color: #454658;
+}
+
+section#sec-3 .bloc p {
+  font-family:"HK Grotesk";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
 }
