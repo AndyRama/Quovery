@@ -211,9 +211,15 @@ section#sec-1 .right .img-bot-illu {
 
 section#sec-3 .row {
  display: flex;
+ flex-direction: row;
+ justify-content: center;
+ /* background-color: red; */
+
 }
+
 section#sec-3 .bloc {
   max-width: 428px;
+  margin-left: 200px;
 }
 
 section#sec-3 .bloc h2 {
