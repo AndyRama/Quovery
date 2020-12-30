@@ -16,9 +16,8 @@
   margin:0 auto;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
  } 
-
 
 .q-hero__image {
   position: absolute;
@@ -29,14 +28,15 @@
 }
 
 section#sec-1 {
-  height:100vh;
+  height: 85vh;
   background-color: #151B2B;
   color:white;
 }
 
 section#sec-1 .container {
   display: flex;
-  align-items: end;
+  align-items: flex-end;
+  /* background:rgb(14, 11, 11); */
 }
 
 section#sec-1 .title {
@@ -103,28 +103,39 @@ section#sec-1 .row-button button:nth-child(2){
 section#sec-1 .right .img-top-illu {
   margin-bottom: -300px;  
   position: relative;
-  height: 100%; 
+  height: 80%; 
   z-index: 10;
-  animation: HeroSlideIn .9s forwards;
+  animation: HeroWrapperSlideIn 1.3s forwards;
 } 
 
 section#sec-1 .right .img-mid-illu {
   position: relative;
   z-index: 8;
-  animation: HeroSlideIn .3s forwards;
-  animation-delay:1s; 
-opacity: 0;
+  animation: HeroSlideIn .9s forwards;
+  animation-delay:0.5s; 
+  opacity: 0;
+  padding-left: 1px;
 }
  
 section#sec-1 .right .img-bot-illu {
   margin-top: -300px;  
-  /* position: relative; */
   height: 100%; 
   z-index: 6;
   animation: HeroSlideIn .6s forwards;
- animation-delay:2s; 
-opacity: 0;
+  animation-delay:1s; 
+  opacity: 0;
 } 
+
+@keyframes HeroWrapperSlideIn {
+  0% {
+      transform: translateY(-1%);
+     }
+  
+  100% {
+      transform: translateY(0);
+     }
+}
+
 
 @keyframes HeroSlideIn {
   0% {
@@ -137,4 +148,61 @@ opacity: 0;
       opacity: 1;
   }
 }
+ 
+.q-how {
+  color: black;
+  /* background-color: red; */
+  max-width: 900px;
+  margin:auto;
+  padding: 96px 32px;
+  text-align: center;
+  flex-direction: column;
+  position: relative;
+  /* justify-content: right; */
+}
+.q-how h1 {
+  font-family:"HK Grotesk";
+  font-weight: 800;
+  font-size: 32px;
+  line-height: 110%;
+  color: #454658;
+  padding-bottom: 50px;
+  margin-left: 150px;
+}
+.q-how p {
+  font-size: 16px;
+  line-height: 150%;
+  color: #454658;
+  padding-bottom: 100px;
+  margin-left: 220px;
+}
 
+.q-how img {
+   margin-left: 100px;
+}
+
+.q-Usage {
+  flex-direction: column;
+  align-items: center;
+}
+
+.q-Usage h1 {
+  font-family:"HK Grotesk";
+  font-weight: 800;
+  font-size: 32px;
+  line-height: 110%;
+  color: #454658;
+  padding-bottom: 50px;
+  margin-left: 100px;
+}
+
+.q-Usage p {
+  /* align-items: center; */
+  /* justify-content: end;  */
+  /* margin-left: 250px; */
+max-width: none;
+}
+
+.q-Usage img {
+   margin-top: -200px;
+}
