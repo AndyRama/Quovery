@@ -25,25 +25,62 @@
         </div>
        <div class="right">
           <div class="flex-items">
-            <!-- <img src="image/illustration.svg" alt="illustration">  -->
-            <div class="img-top-illu"><img src="image/img top.svg" style="height: 434px alt="illustration"></div> 
+            <img src="image/illustration.svg" alt="illustration"> 
+            <!-- <div class="img-top-illu"><img src="image/img top.svg" style="height: 434px" alt="illustration"></div> 
             <div class="img-mid-illu"><img src="image/img top.svg" alt="illustration"></div>   
-            <div class="img-bot-illu"><img src="image/img top.svg" alt="illustration"></div>   
+            <div class="img-bot-illu"><img src="image/img top.svg" alt="illustration"></div>    -->
           </div>          
        </div>
       </div>
-      <section class="q-how">
-          <div class="flex-items">
-           <h1>How does it work?</h1>
-             <p>Qovery Engine is an Open-source abstraction layer product that turns easy apps deployement on AWS, GCP, Azure and others Cloud providers.The Qovery Engine is coded in Rust and takes advantage of terraform, Helm , Kubernet, Docker to manage resources.</p>
-             <img src="image/img-work.svg" style="height: 434px">
-          </div>
-         <div class="q-Usage">
-          <div class="flex-items">
-              <h1>Usage</h1>
-              <p>Initiaize EKS ( AWS Kubernet) and ECR (AWS container registry) on AWS.</p>
-              <img src="image/bg.svg" style="height: 434px">
-          </div>
+      
+      <section id="sec-2">
+          <div class="flex-container">
+            <div class="intro-content">
+              <h1>How does it work?</h1>
+              <p>Qovery Engine is an Open-source abstraction layer product that
+              turns easy apps deployement on AWS, GCP, Azure and others Cloud
+              providers.The Qovery Engine is coded in Rust and takes advantage
+              of terraform, Helm , Kubernet, Docker to manage resources.</p>
+            </div>
+          </div>  
+            <div class="image-wrapper">  
+              <img src="image/img-work.svg">
+            </div>
+             <div class="intro-content">
+               <h1>Usage</h1>
+               <p>Initiaize EKS ( AWS Kubernet) and ECR (AWS container registry) on AWS.</p>
+            </div>
+           </div>  
+             <div class="image-wrapper">  
+               <img src="image/bg.svg">
+             </div>
+           </div>
+        <div class="flex-container-small">
+          <pre class="rust" style="font-family:monospace;"><span style="color: #708;">let</span> engine <span style="color: #339933;">=</span> Engine<span style="color: #339933;">::</span><span style="color: #164;">new</span><span style="">&#40;</span>
+            context<span style="color: #339933;">,</span> <span style="color: #a50; font-style: italic;">// parameters</span>
+            local_docker<span style="color: #339933;">,</span> <span style="color: #a50; font-style: italic;">// initialize Docker as a Build Platform</span>
+            ecr<span style="color: #339933;">,</span> <span style="color: #a50; font-style: italic;">// initialize Elastic Container Registry</span>
+            aws<span style="color: #339933;">,</span> <span style="color: #a50; font-style: italic;">// initialize AWS account</span>
+            cloudflare<span style="color: #339933;">,</span> <span style="color: #a50; font-style: italic;">// initialize Cloudflare as DNS Nameservers</span>
+        <span style="">&#41;</span><span style="color: #339933;">;</span>
+        &nbsp;
+        <span style="color: #708;">let</span> session <span style="color: #339933;">=</span> <span style="color: #708;">match</span> engine.session<span style="">&#40;</span><span style="">&#41;</span> <span style="">&#123;</span>
+            Ok<span style="">&#40;</span>session<span style="">&#41;</span> <span style="color: #339933;">=&gt;</span> session<span style="color: #339933;">,</span> <span style="color: #a50; font-style: italic;">// get the session</span>
+            Err<span style="">&#40;</span>config_error<span style="">&#41;</span> <span style="color: #339933;">=&gt;</span> panic<span style="color: #339933;">!</span><span style="">&#40;</span><span style="color: #a11;">&quot;configuration error {:?}&quot;</span><span style="color: #339933;">,</span> config_error<span style="">&#41;</span><span style="color: #339933;">,</span>
+        <span style="">&#125;</span><span style="color: #339933;">;</span>
+        &nbsp;
+        <span style="color: #708;">let</span> <span style="color: #708;">mut</span> tx <span style="color: #339933;">=</span> session.transaction<span style="">&#40;</span><span style="">&#41;</span><span style="color: #339933;">;</span>
+        &nbsp;
+        <span style="color: #a50; font-style: italic;">// create EKS (AWS managed Kubernetes cluster)</span>
+        tx.create_kubernetes<span style="">&#40;</span><span style="color: #339933;">&amp;</span>eks<span style="">&#41;</span><span style="color: #339933;">;</span>
+        &nbsp;
+        <span style="color: #a50; font-style: italic;">// create the infrastructure and wait for the result</span>
+        <span style="color: #708;">match</span> tx.commit<span style="">&#40;</span><span style="">&#41;</span> <span style="">&#123;</span> 
+            TransactionResult<span style="color: #339933;">::</span><span style="color: #164;">Ok</span> <span style="color: #339933;">=&gt;</span> println<span style="color: #339933;">!</span><span style="">&#40;</span><span style="color: #a11;">&quot;OK&quot;</span><span style="">&#41;</span><span style="color: #339933;">,</span>
+            TransactionResult<span style="color: #339933;">::</span><span style="color: #164;">Rollback</span><span style="">&#40;</span>commit_err<span style="">&#41;</span> <span style="color: #339933;">=&gt;</span> println<span style="color: #339933;">!</span><span style="">&#40;</span><span style="color: #a11;">&quot;ERROR but rollback OK&quot;</span><span style="">&#41;</span><span style="color: #339933;">,</span> 
+            TransactionResult<span style="color: #339933;">::</span><span style="color: #164;">UnrecoverableError</span><span style="">&#40;</span>commit_err<span style="color: #339933;">,</span> rollback_err<span style="">&#41;</span> <span style="color: #339933;">=&gt;</span> println<span style="color: #339933;">!</span><span style="">&#40;</span><span style="color: #a11;">&quot;FATAL ERROR&quot;</span><span style="">&#41;</span>
+        <span style="">&#125;</span><span style="color: #339933;">;</span></pre>
+      </div>
           <div class="row-button">
             <button><i class="fab fa-github"></i>See On Github</button>
             <button><i class="fab fa-discord"></i>Join us on Discord</button>

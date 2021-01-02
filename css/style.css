@@ -19,6 +19,17 @@
   justify-content: space-between;
  } 
 
+.flex-container-small {
+  width: 855px;
+  height: 100%;
+  margin:0 auto;
+  display: flex;
+  align-items: center;
+  background-color: gray;
+  justify-content: space-between; 
+
+ } 
+
 .q-hero__image {
   position: absolute;
   width: 567px;
@@ -28,7 +39,7 @@
 }
 
 section#sec-1 {
-  height: 90vh;
+  height: 100%;
   background-color: #151B2B;
   color:white;
 }
@@ -36,7 +47,7 @@ section#sec-1 {
 section#sec-1 .container {
   display: flex;
   align-items: flex-end;
-  /* background:rgb(14, 11, 11); */
+  background:rgb(14, 11, 11);
 }
 
 section#sec-1 .title {
@@ -160,26 +171,6 @@ section#sec-1 .right .img-bot-illu {
   justify-content: right;
 }
 
-.q-how h1 {
-  font-family:"HK Grotesk";
-  font-weight: 800;
-  font-size: 32px;
-  line-height: 110%;
-  color: #454658;
-  padding-bottom: 50px;
-  margin-left: 110px;
-  margin-left: 200px !important;
-}
-.q-how p {
-  font-size: 16px;
-  line-height: 150%;
-  color: #454658;
-  padding-bottom: 100px;
-  margin-left: 200px;
-  max-width: none !important ;
-  padding-left: 0 !important ;
-}
-
 .q-how img {
    margin-left: 180px;
 }
@@ -249,4 +240,36 @@ text-transform: uppercase;
 color: #5D64D2;
 }
 
+/* SECTION 2 */
+
+#sec-2 .container-small {
+  /* padding: 100px 0 !important; */
+
+}
+
+#sec-2 .intro-content {
+  text-align: center;
+}
+
+#sec-2 .intro-content h1 {
+  font-family:"HK Grotesk";
+  font-weight: 800;
+  font-size: 32px;
+  line-height: 110%;
+  color: #454658;
+  padding-bottom: 50px;
+  /* margin-left: 110px; */
+  /* margin-left: 200px !important; */
+}
+
+#sec-2 .intro-content p {
+  font-size: 16px;
+  line-height: 150%;
+  color: #454658;
+  padding-bottom: 100px;
+  margin-left: 200px;
+  max-width: none !important ;
+  padding-left: 0 !important ; 
+  margin: 0px 24px;
+}
 
